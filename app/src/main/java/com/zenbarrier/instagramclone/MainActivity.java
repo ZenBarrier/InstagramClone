@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Utilities.setKeyboardHideOnClick(this, findViewById(R.id.activity_main));
+
         editUsername = (EditText) findViewById(R.id.editTextUsername);
         editPassword = (EditText) findViewById(R.id.editTextPassword);
     }
