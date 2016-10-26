@@ -11,8 +11,8 @@ import android.widget.EditText;
  * This file has misc functions for use in other class files.
  */
 
-public class Utilities {
-    public static void setKeyboardHideOnClick(final Context context, View view){
+class Utilities {
+    static void setKeyboardHideOnClick(final Context context, View view){
         if(!(view instanceof EditText)){
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
