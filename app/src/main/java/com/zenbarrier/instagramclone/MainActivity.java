@@ -1,5 +1,6 @@
 package com.zenbarrier.instagramclone;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(ParseUser.getCurrentUser() != null){
+            userListActivity();
+        }
+
         Utilities.setKeyboardHideOnClick(this, findViewById(R.id.activity_main));
 
         editUsername = (EditText) findViewById(R.id.editTextUsername);
@@ -38,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                     if(e!=null){
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
+                    else{
+                        userListActivity();
+                    }
                 }
             });
         }
@@ -50,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 public void done(ParseException e) {
                     if(e!=null){
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        userListActivity();
                     }
                 }
             });
@@ -70,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
             buttonLogIn.setText(getString(R.string.log_in_button));
             buttonMode.setText(getString(R.string.sign_up_button));
         }
+    }
+
+    void userListActivity(){
+        Intent intent = new Intent(getApplicationContext(), UserListActivity.class);
+        startActivity(intent);
     }
 
 }
