@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             userListActivity();
         }
 
-        Utilities.setKeyboardHideOnClick(this, findViewById(R.id.activity_main));
+        Utilities.setKeyboardHideOnTouch(this, findViewById(R.id.activity_main));
 
         editUsername = (EditText) findViewById(R.id.editTextUsername);
         editPassword = (EditText) findViewById(R.id.editTextPassword);

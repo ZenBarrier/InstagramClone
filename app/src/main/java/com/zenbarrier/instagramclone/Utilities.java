@@ -13,7 +13,7 @@ import android.widget.EditText;
  */
 
 class Utilities {
-    static void setKeyboardHideOnClick(final Context context, View view){
+    static void setKeyboardHideOnTouch(final Context context, View view){
         if(!(view instanceof EditText)){
             view.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -26,7 +26,7 @@ class Utilities {
         }
         if(view instanceof ViewGroup){
             for(int i = 0 ; i < ((ViewGroup) view).getChildCount() ; i++){
-                setKeyboardHideOnClick(context, ((ViewGroup) view).getChildAt(i));
+                setKeyboardHideOnTouch(context, ((ViewGroup) view).getChildAt(i));
             }
         }
     }
