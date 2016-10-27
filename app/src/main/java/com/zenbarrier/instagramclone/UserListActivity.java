@@ -58,6 +58,7 @@ public class UserListActivity extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                             Intent intent = new Intent(UserListActivity.this, UserFeedActivity.class);
                             intent.putExtra("userId", objects.get(i).getObjectId());
+                            intent.putExtra("username", userList.get(i));
                             startActivity(intent);
                         }
                     });
