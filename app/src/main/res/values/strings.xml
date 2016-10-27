@@ -6,4 +6,5 @@
     <string name="log_in_button">Log In</string>
     <string name="logo_content_description">Logo</string>
     <string name="share_menu">share</string>
+    <string name="title_activity_user_feed">UserFeedActivity</string>
 </resources>
