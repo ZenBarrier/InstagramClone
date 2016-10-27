@@ -2,6 +2,8 @@ package com.zenbarrier.instagramclone;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -40,5 +42,12 @@ public class UserListActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.user_list_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
