@@ -5,5 +5,8 @@
     tools:context=".UserListActivity">
     <item android:id="@+id/share" android:title="@string/share_menu"
         android:orderInCategory="100" app:showAsAction="always"/>
+    <item android:id="@+id/logout" android:title="@string/logout_menu"
+        android:orderInCategory="90" app:showAsAction="always"/>
+
 
 </menu>

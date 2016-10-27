@@ -68,8 +68,13 @@ public class UserListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.share:
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, 1);
+                Intent picker = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(picker, 1);
+                break;
+            case R.id.logout:
+                ParseUser.logOut();
+                Intent mainActivity = new Intent(this, MainActivity.class);
+                startActivity(mainActivity);
                 break;
             default:
         }
