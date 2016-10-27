@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -45,12 +47,20 @@ public class UserListActivity extends AppCompatActivity {
         query.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
-            public void done(List<ParseUser> objects, ParseException e) {
+            public void done(final List<ParseUser> objects, ParseException e) {
                 if(e==null){
                     for(ParseUser user:objects){
                         userList.add(user.getUsername());
                     }
                     adapter = new ArrayAdapter<>(UserListActivity.this, android.R.layout.simple_list_item_1, userList);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Intent intent = new Intent(UserListActivity.this, UserFeedActivity.class);
+                            intent.putExtra("userId", objects.get(i).getObjectId());
+                            startActivity(intent);
+                        }
+                    });
                     listView.setAdapter(adapter);
                 }
             }
